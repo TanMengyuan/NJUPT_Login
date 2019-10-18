@@ -1,6 +1,6 @@
 # NJUPT_Login
 **自动登录以及自动断网的小插件**  
-config.json文件配置如下：  
+config.json文件配置如下(自行创建并替换账号密码信息）：  
 {  
   "username":"your_account",  
   "password":"your_password",  
