@@ -6,6 +6,16 @@
 """
 import requests
 import re
+import logging
+
+
+def logger(s):
+    logging.basicConfig(filename='/Users/mengyuantan/Public/plugin/Logs',
+                        format='[%(levelname)s] %(asctime)s %(message)s',
+                        filemode="a",
+                        level=logging.INFO,
+                        datefmt='%Y-%m-%d %H:%M:%S')
+    logging.info(s)
 
 
 def get_fee():
