@@ -20,7 +20,6 @@ url_njupt = "http://192.168.168.168/0.htm"
 data = {"DDDDD": username, "upass": password, "0MKKey": key}
 
 if __name__ == "__main__":
-    logger("Start login.")
     try:
         requests.post(url=url_njupt, data=data)
         if is_connect():

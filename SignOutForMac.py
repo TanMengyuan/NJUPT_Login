@@ -9,7 +9,6 @@ from Helper import get_fee, logger
 
 
 if __name__ == "__main__":
-    logger("Start logout.")
     try:
         fee = get_fee()
         url = "http://192.168.168.168/F.htm"
