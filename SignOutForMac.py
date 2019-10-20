@@ -5,16 +5,20 @@
 @time: 2019/10/17 20:31
 """
 import requests
-from Helper import get_fee
+from Helper import get_fee, logger
 
 
 if __name__ == "__main__":
+    logger("Start logout.")
     try:
         fee = get_fee()
         url = "http://192.168.168.168/F.htm"
         requests.get(url=url)
+        logger("NJUPT has sign out.")
+        logger("余额 Balance: %.2f RMB" % fee)
         with open("/Users/mengyuantan/Public/plugin/tmp", "w+") as f:
             f.write("余额 Balance: %.2f RMB" % fee)
     except:
+        logger("Connection Failed.")
         with open("/Users/mengyuantan/Public/plugin/tmp", "w+") as f:
             f.write("Connection Failed.")

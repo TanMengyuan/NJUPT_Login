@@ -27,4 +27,4 @@ def get_fee():
 
 def is_connect():
     url_baidu = "http://www.baidu.com"
-    return requests.get(url_baidu).status_code == 200
+    return requests.get(url_baidu, timeout=1).status_code == 200
