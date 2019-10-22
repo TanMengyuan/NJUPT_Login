@@ -4,8 +4,12 @@
 @contact: tanmy1016@126.com
 @time: 2019/10/17 20:31
 """
-import requests
+import getopt
 import json
+import sys
+
+import requests
+
 from Helper import get_fee, is_connect, logger
 
 CONFIG_FILE = '/Users/mengyuantan/Public/plugin/config.json'
@@ -20,19 +24,23 @@ url_njupt = "http://192.168.168.168/0.htm"
 data = {"DDDDD": username, "upass": password, "0MKKey": key}
 
 if __name__ == "__main__":
+    opts, args = getopt.getopt(sys.argv[1:], "o")
+    is_logout = False
+    for op, value in opts:
+        if op == "-o":
+            is_logout = True
+
     try:
         requests.post(url=url_njupt, data=data)
-        if is_connect():
-            fee = get_fee()
-            logger("NJUPT has sign in.")
-            logger("余额 Balance: %.2f RMB" % fee)
-            with open("/Users/mengyuantan/Public/plugin/tmp", "w+") as f:
-                f.write("余额 Balance: %.2f RMB" % fee)
-        else:
-            logger("Connection Failed.")
-            with open("/Users/mengyuantan/Public/plugin/tmp", "w+") as f:
-                f.write("Connection Failed.")
+        if not is_logout:
+            if is_connect():
+                fee = get_fee()
+                logger("NJUPT has sign in.")
+                logger("余额 Balance: %.2f RMB" % fee)
+                print("余额 Balance: %.2f RMB" % fee)
+            else:
+                logger("Connection Failed.")
+                print("Connection Failed.")
     except:
         logger("Connection Failed.")
-        with open("/Users/mengyuantan/Public/plugin/tmp", "w+") as f:
-            f.write("Connection Failed.")
+        print("Connection Failed.")

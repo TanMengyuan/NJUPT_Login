@@ -15,9 +15,7 @@ if __name__ == "__main__":
         requests.get(url=url)
         logger("NJUPT has sign out.")
         logger("余额 Balance: %.2f RMB" % fee)
-        with open("/Users/mengyuantan/Public/plugin/tmp", "w+") as f:
-            f.write("余额 Balance: %.2f RMB" % fee)
+        print("余额 Balance: %.2f RMB" % fee)
     except:
         logger("Connection Failed.")
-        with open("/Users/mengyuantan/Public/plugin/tmp", "w+") as f:
-            f.write("Connection Failed.")
+        print("Connection Failed.")
