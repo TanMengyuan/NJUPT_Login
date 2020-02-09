@@ -10,7 +10,7 @@ import logging
 
 
 def logger(s):
-    logging.basicConfig(filename='/Users/mengyuantan/Public/plugin/Logs',
+    logging.basicConfig(filename='/Users/mengyuantan/Desktop/NJUPT_web.log',
                         format='[%(levelname)s] %(asctime)s %(message)s',
                         filemode="a",
                         level=logging.INFO,
